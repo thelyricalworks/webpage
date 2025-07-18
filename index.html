@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Music Production</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #121212;
+      color: #eee;
+    }
+    header {
+      background-color: #1db954; /* Spotify Green vibe */
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #282828;
+    }
+    nav button {
+      background: none;
+      border: none;
+      padding: 1rem 2rem;
+      color: #b3b3b3;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      outline: none;
+    }
+    nav button:hover,
+    nav button.active {
+      color: #1db954;
+      border-bottom: 3px solid #1db954;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    a {
+      color: #1db954;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>Music Production</header>
+  <nav>
+    <button class="tab-btn active" data-tab="intro">Introduction</button>
+    <button class="tab-btn" data-tab="what-we-do">What We Do</button>
+    <button class="tab-btn" data-tab="contact">Contact</button>
+  </nav>
+  <main>
+    <section id="intro" class="active">
+      <h2>Welcome to Our Music Production Studio</h2>
+      <p>
+        We are passionate about creating high-quality music that inspires and moves people. Whether you're an artist, band, or content creator, we offer professional production services tailored to your unique sound.
+      </p>
+    </section>
+
+    <section id="what-we-do">
+      <h2>What We Do</h2>
+      <ul>
+        <li>Recording and mixing audio tracks</li>
+        <li>Music arrangement and composition</li>
+        <li>Sound design and effects</li>
+        <li>Mastering and final production</li>
+        <li>Collaboration with artists and producers</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Information</h2>
+      <p>Email: <a href="mailto:info@musicproduction.com">info@musicproduction.com</a></p>
+      <p>Phone: +1 (555) 123-4567</p>
+      <p>Follow us on social media:</p>
+      <ul>
+        <li><a href="https://twitter.com/musicprod" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://instagram.com/musicprod" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://facebook.com/musicprod" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Music Production. All rights reserved.
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('main section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from all buttons
+        buttons.forEach(b => b.classList.remove('active'));
+        // Hide all sections
+        sections.forEach(s => s.classList.remove('active'));
+
+        // Activate clicked button and matching section
+        btn.classList.add('active');
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
